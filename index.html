@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style/index.css">
+</head>
+
+<body>
+    <main>
+        <header>
+            <div class="title">
+                <img src="/icons/message.png" width="35px">
+                <h1>Let's Talk</h1>
+            </div>
+            <button type="button" id="toggleButton" onclick="show_hide()">
+                <img src="/icons/hamburger.svg" width="30px">
+            </button>
+        </header>
+        <div class="container">
+            <div class="users-window">
+                <div class="users-head">
+                    <h3>People</h3>
+                    <h4 class="user-count"></h4>
+                </div>
+                <div class="users-list">
+
+                </div>
+            </div>
+            <div class="chat-window">
+                <div class="chats">
+                </di    v>
+                <div class="user-input">
+                    <input id="user-msg" type="text" placeholder="Enter your text...">
+                    <button id="user-send">Send</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+<script>
+    let menu = document.querySelector('.users-window');
+    let show_hide = () => {
+        if (menu.style.display == "block") {
+            menu.style.display = "none"
+        }
+        else {
+            menu.style.display = "block"
+        }
+    }
+</script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/client.js"></script>
+
+</html>
