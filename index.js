@@ -13,6 +13,7 @@ app.get('/', (req, res) => {
 })
 
 const io = require('socket.io')(server);
+
 let users = {}
 
 io.on('connection', (socket) => {
