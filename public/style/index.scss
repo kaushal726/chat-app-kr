@@ -185,6 +185,9 @@ main{
             div.chats{
                 div.message{
                     max-width: 280px;
+                    p {
+                        max-width: 251px;
+                    }
                 }
             }
            }

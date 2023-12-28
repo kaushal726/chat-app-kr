@@ -172,4 +172,7 @@ main div.container div.chat-window div.user-input button {
   main div.container div.chat-window div.chats div.message {
     max-width: 280px;
   }
+  main div.container div.chat-window div.chats div.message p {
+    max-width: 251px;
+  }
 }/*# sourceMappingURL=index.css.map */
