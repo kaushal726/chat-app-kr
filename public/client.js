@@ -50,42 +50,41 @@ socket.on('user-list', (userList) => {
 })
 
 
+// let handleInput = (e) => {
+//     let message = usersMsgEL.value;
+//     let obj = {
+//         name: username,
+//         message: message
+//     }
+//     if (message !== "") {
+//         socket.emit('user-message', obj)
+//         createMessage(obj, 'outgoing');
+//         usersMsgEL.value = ''
+//     }
+// }
+
 let handleInput = (e) => {
-    let message = usersMsgEL.value;
-    let obj = {
-        name: username,
-        message: message
+    if (e.type === 'click' || (e.type === 'keyup' && (e.key === 'Enter' || e.code === 'Enter'))) {
+        let message = usersMsgEL.value;
+        let obj = {
+            name: username,
+            message: message
+        };
+
+        if (message.trim() !== "") {
+            socket.emit('user-message', obj);
+            createMessage(obj, 'outgoing');
+            usersMsgEL.value = '';
+        }
     }
-    socket.emit('user-message', obj)
-    createMessage(obj, 'outgoing');
-    usersMsgEL.value = ''
-    // let div = document.createElement('div');
-    // div.classList.add('message', 'incoming');
-    // let header = document.createElement('h5');
-    // let p = document.createElement('p');
-    // header.innerHTML = message.name;
-    // p.innerHTML = message.message;
-    // div.appendChild(header);
-    // div.appendChild(p);
-    // chatsEl.appendChild(div);
-}
+};
 
 usersSendEL.addEventListener('click', handleInput);
-
+document.addEventListener('keyup', handleInput);
 
 
 socket.on('message', (message) => {
     createMessage(message, 'incoming');
-
-    // let div = document.createElement('div');
-    // div.classList.add('message', 'incoming');
-    // let header = document.createElement('h5');
-    // let p = document.createElement('p');
-    // header.innerHTML = message.name;
-    // p.innerHTML = message.message;
-    // div.appendChild(header);
-    // div.appendChild(p);
-    // chatsEl.appendChild(div);
 })
 
 let createMessage = (message, status) => {
