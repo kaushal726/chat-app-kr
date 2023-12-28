@@ -9,6 +9,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style/index.css">
+    <style>
+        .typing {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 23px;
+            width: 100%;
+            color: white;
+            font-size: 14px;
+            font-family: cursive;
+            letter-spacing: 0.5px;
+        }
+
+        .your-name {
+            border: 2px solid #3dec86;
+            padding: 0 5px;
+            border-radius: 2px 5px;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 
 <body>
@@ -46,6 +67,7 @@
                         <p>Hey Client!!</p>
                     </div>
                 </div>
+                <p class="typing" id="typing"></p>
                 <div class="user-input">
                     <input id="user-msg" type="text" placeholder="Enter your text...">
                     <button id="user-send">Send</button>

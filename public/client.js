@@ -8,6 +8,8 @@ let userCountEl = document.querySelector('.user-count');
 let usersListEL = document.querySelector('.users-list');
 let usersMsgEL = document.querySelector('#user-msg');
 let usersSendEL = document.querySelector('#user-send');
+let typing = document.querySelector('#typing');
+
 
 
 do {
@@ -22,6 +24,16 @@ socket.on('user-connected', (socket_name) => {
 })
 socket.on('user-disconnected', (username) => {
     userJoinLeft(username, "left");
+})
+
+socket.on('user-typing-on', (username) => {
+    typing.innerHTML = "";
+    typing.innerHTML = "Someone is Typing...";
+
+})
+
+socket.on('user-typing-off', (username) => {
+    typing.innerHTML = "";
 })
 
 
@@ -40,6 +52,7 @@ socket.on('user-list', (userList) => {
     usersListEL.innerHTML = "";
     usernames.map(name => {
         let p = document.createElement('p');
+        p.id = name;
         p.innerHTML = name;
         if (name == username) {
             p.classList.add('your-name');
@@ -47,6 +60,14 @@ socket.on('user-list', (userList) => {
         usersListEL.appendChild(p)
     })
     userCountEl.innerHTML = usernames.length;
+})
+
+usersMsgEL.addEventListener('input', (e) => {
+    socket.emit("typing-on", username)
+})
+
+usersMsgEL.addEventListener('blur', (e) => {
+    socket.emit("typing-off", username)
 })
 
 
@@ -75,6 +96,7 @@ let handleInput = (e) => {
             socket.emit('user-message', obj);
             createMessage(obj, 'outgoing');
             usersMsgEL.value = '';
+            socket.emit("typing-off", username)
         }
     }
 };

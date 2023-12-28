@@ -33,6 +33,16 @@ io.on('connection', (socket) => {
     socket.on('user-message', (obj) => {
         socket.broadcast.emit('message', obj)
     })
+
+    socket.on('typing-on', (name) => {
+        socket.broadcast.emit('user-typing-on', name);
+    })
+
+    socket.on('typing-off', (name) => {
+        socket.broadcast.emit('user-typing-off', name);
+    })
+
+
 })
 
 

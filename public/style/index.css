@@ -108,6 +108,8 @@ main div.container div.chat-window div.chats div.message {
 }
 main div.container div.chat-window div.chats div.message p {
   font-size: 15px;
+  width: 379px;
+  word-wrap: break-word;
 }
 main div.container div.chat-window div.chats div.outgoing {
   margin-left: auto;
@@ -121,12 +123,12 @@ main div.container div.chat-window div.user-input {
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
-  padding: 20px;
+  padding: 10px 20px;
 }
 main div.container div.chat-window div.user-input input {
-  font-size: 10px;
+  font-size: 15px;
   background-color: white;
-  padding: 20px 30px;
+  padding: 15px 30px;
   outline: none;
   border: none;
   width: 100%;
@@ -142,17 +144,6 @@ main div.container div.chat-window div.user-input button {
   color: white;
   background-color: #2791cf;
   border-radius: 0px 50px 50px 0px;
-}
-
-.your-name {
-  border: 2px solid #3dec86;
-  /* background-color: #ecf0f1; */
-  /* color: #2c3e50; */
-  padding: 0 5px;
-  border-radius: 2px 5px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  /* font-size: 16px; */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 @media screen and (max-width: 900px) {
@@ -181,4 +172,4 @@ main div.container div.chat-window div.user-input button {
   main div.container div.chat-window div.chats div.message {
     max-width: 280px;
   }
-} /*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=index.css.map */
