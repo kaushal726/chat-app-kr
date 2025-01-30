@@ -119,5 +119,8 @@ let createMessage = (message, status) => {
     div.appendChild(header);
     div.appendChild(p);
     chatsEl.appendChild(div);
+    if (chatsEl.children.length > 15) {
+        chatsEl.removeChild(chatsEl.firstChild);
+    }
     chatsEl.scrollTop = chatsEl.scrollHeight
 }
